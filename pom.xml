@@ -44,7 +44,9 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <configuration>
-          <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+          <warSourceDirectory>src/main/webapp</warSourceDirectory>
+          <warName>mvtest</warName>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
       </plugin>
       <plugin>
