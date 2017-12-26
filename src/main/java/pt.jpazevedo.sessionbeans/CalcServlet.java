@@ -7,6 +7,7 @@ package pt.jpazevedo.sessionbeans;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -50,6 +51,10 @@ public class CalcServlet extends HttpServlet {
             }
             else{
                 out.println(request.getQueryString());
+                Enumeration paramaterNames = request.getParameterNames();
+                while(paramaterNames.hasMoreElements() ) {
+                    out.println("PARAMETER:" + paramaterNames.nextElement());
+                }
                 int a = Integer.parseInt(request.getParameter("t1"));
                 int b = Integer.parseInt(request.getParameter("t2"));
                 out.println("<h1>Servlet CalcServlet at " + request.getContextPath() + "</h1>");
