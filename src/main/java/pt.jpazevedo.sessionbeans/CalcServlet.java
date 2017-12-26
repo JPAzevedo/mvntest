@@ -44,10 +44,18 @@ public class CalcServlet extends HttpServlet {
             out.println("<title>Servlet CalcServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            int a = Integer.parseInt(request.getParameter("t1"));
-            int b = Integer.parseInt(request.getParameter("t2"));
-            out.println("<h1>Servlet CalcServlet at " + request.getContextPath() + "</h1>");
-            out.println("<h1>SUM " + calc.addition(a, b) + "</h1>");
+
+            if(request == null){
+                out.println("request is null");
+            }
+            else{
+                out.println(request.getQueryString());
+                int a = Integer.parseInt(request.getParameter("t1"));
+                int b = Integer.parseInt(request.getParameter("t2"));
+                out.println("<h1>Servlet CalcServlet at " + request.getContextPath() + "</h1>");
+                out.println("<h1>SUM " + calc.addition(a, b) + "</h1>");
+            }
+
             out.println("</body>");
             out.println("</html>");
         }
