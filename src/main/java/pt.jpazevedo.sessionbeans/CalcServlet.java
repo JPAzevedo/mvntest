@@ -8,7 +8,6 @@ package pt.jpazevedo.sessionbeans;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
-import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,8 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "CalcServlet", urlPatterns = {"/CalcServlet"})
 public class CalcServlet extends HttpServlet {
 
-    @EJB
-    private CalcLocal calc;
+    private CalcLocal calc = new Calc();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
